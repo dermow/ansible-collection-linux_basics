@@ -1,0 +1,27 @@
+- name: Server setup
+  hosts: all
+  tasks:
+    - name: Include core setup role
+      ansible.builtin.include_role:
+        name: core_setup
+      vars:
+        core_setup_groups:
+          - "ansible"
+        core_setup_users:
+          - name: mow
+            shell: "/bin/bash"
+            primary_group: "ansible"
+        core_setup_auth_keys:
+          - comment: mow
+            user: mow
+            key: >
+              ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCVajIctwcnBwqy5Xuh7tBrTgMvMzBD5cxeWRmiWl4ANT+1zohvsc0YNuCpAmWWpRX4nQMx963pyxBx6ZQW0wwWY
+              3gb4Vr1KP/InkBHN2lJ1pniRNOwBooAQB6WHsljaLbxZC+neGNd6Ge/jpfSAzISzj5vhIa8vkg+4eK0BtU1sdgF9ud3d6MTUH3HeXWrak3snXbI3vYdyivPQseHnp3
+              HIP6X7+61fOGU1zffVdRDa69h8NcacaHwC6YlIuOLOeJJNRKmNNklcYhuLXoejbMfEGWAXsPRWSzo90ZlR9ldTAeD6tvu3Yxfop4bEvcjTHMtBOzuGfJIMu6ntk2eY
+              h+vFmr4Pt6qc2Yjv5OPrDAXUcLEVoLH2iLlCeOVTdiUFni5Wz39Gm/B4msaF299IngOQAGEukhsO1G497L8H4IW5fQN1kcnyXtgrYiQrwnC7UO7iwN/u3+fJvjGBzh
+              DiwmDBXsSm8CF8LSfrEvwpEe1XIxP3EU21NvvruPvXHl4is= dermo@DESKTOP-J48VP41
+        core_setup_directories:
+          - path: /opt/test
+            owner: mow
+            group: ansible
+            mode: "0660"

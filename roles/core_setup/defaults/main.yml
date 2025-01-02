@@ -1,0 +1,30 @@
+---
+core_setup_groups: []
+# - "mygroup"
+
+core_setup_users: []
+
+# core_seutp_users:
+#   - name: myuser
+#     primary_group: mygroup
+#     additional_groups: [] # additional groups
+#     shell: "/bin/bash"
+#     state: present
+#     create_home: true
+
+core_setup_auth_keys: []
+
+# Specify authorized keys like:
+# core_setup_auth_keys:
+#   - comment: myuserkey
+#     user: myuser
+#     key: "ssh-rsa ABCDEFG"
+#     state: present
+
+core_setup_exclusive_key_management: false
+
+core_setup_directories: []
+#  - path: "/opt/ansible"
+#    owner: "myuser"
+#    group: "myuser"
+#    mode: "0660"

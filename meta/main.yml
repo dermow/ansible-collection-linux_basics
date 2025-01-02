@@ -1,0 +1,11 @@
+namespace: dermow
+name: "linux_basics"
+version: "1.0.0"
+readme: "README.md"
+authors:
+  - "Sebastian Seibold"
+license:
+  - "MIT"
+tags:
+  - linux
+repository: "https://www.github.com/dermow/ansible-collection-linux_basics"

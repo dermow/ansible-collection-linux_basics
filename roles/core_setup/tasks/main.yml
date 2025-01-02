@@ -1,0 +1,38 @@
+---
+- name: Make sure groups are up to date
+  become: true
+  ansible.builtin.group:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ core_setup_groups }}"
+
+- name: Make sure users are up to date
+  become: true
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    group: "{{ item.primary_group }}"
+    groups: "{{ item.additional_groups | default([]) }}"
+    shell: "{{ item.shell }}"
+    home: "{{ item.custom_home | default(omit) }}"
+    password: "{{ item.password | default(omit) }}"
+  loop: "{{ core_setup_users }}"
+
+- name: Make sure authorized keys are up to date
+  become: true
+  ansible.posix.authorized_key:
+    comment: "{{ item.comment }}"
+    user: "{{ item.user }}"
+    key: "{{ item.key }}"
+    exclusive: "{{ core_setup_exclusive_key_management }}"
+    state: "{{ item.state | default('present') }}"
+  loop: "{{ core_setup_auth_keys }}"
+
+- name: Make sure directories are present
+  become: true
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: directory
+    owner: "{{ item.owner }}"
+    mode: "{{ item.mode }}"
+  loop: "{{ core_setup_directories }}"
