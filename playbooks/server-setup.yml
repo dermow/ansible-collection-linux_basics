@@ -25,3 +25,8 @@
             owner: mow
             group: ansible
             mode: "0660"
+        core_setup_packages:
+          - name: htop
+            state: present
+          - name: vim
+            state: present

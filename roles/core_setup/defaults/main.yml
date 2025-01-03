@@ -28,3 +28,9 @@ core_setup_directories: []
 #    owner: "myuser"
 #    group: "myuser"
 #    mode: "0660"
+
+core_setup_packages: []
+
+# core_setup_packages:
+#   - name: htop
+#     state: present

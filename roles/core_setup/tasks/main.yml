@@ -36,3 +36,16 @@
     owner: "{{ item.owner }}"
     mode: "{{ item.mode }}"
   loop: "{{ core_setup_directories }}"
+
+- name: Make sure package cache is up to date
+  become: true
+  ansible.builtin.package:
+    update_cache: true
+  when: core_setup_packages | length > 0
+
+- name: Make sure packages are at target state
+  become: true
+  ansible.builtin.package:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop: "{{ core_setup_packages }}"
