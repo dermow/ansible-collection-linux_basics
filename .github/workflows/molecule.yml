@@ -7,4 +7,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: sudo apt update && sudo apt install python3 python3-pip python3-venv
-      - run: python2-venv ansible-dev
+      - run: python3 -m venv ansible-molecule
+      
