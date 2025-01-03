@@ -28,12 +28,12 @@ You can use this role to manage one or more users and groups. Just set the varia
         core_setup_groups:
           - mygroup
         core_setup_users:
-          name: myuser
-          primary_group: mygroup
-          additional_groups: []
-          shell: "/bin/bash"
-          state: present
-          create_home: true
+          - name: myuser
+            primary_group: mygroup
+            additional_groups: []
+            shell: "/bin/bash"
+            state: present
+            create_home: true
 ```
 
 The following fields are available for each user item:

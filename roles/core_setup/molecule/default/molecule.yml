@@ -1,0 +1,15 @@
+---
+dependency:
+  name: galaxy
+  options:
+    ignore-errors: true
+driver:
+  name: podman
+platforms:
+  - name: ubuntu-22.04
+    image: docker.io/nmusatti/ubuntu2204-pys:latest
+    pre_build_image: true
+  - name: ubuntu-24.04
+    image: docker.io/nmusatti/ubuntu2404-pys:latest
+    pre_build_image: true
+

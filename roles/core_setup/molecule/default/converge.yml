@@ -1,0 +1,32 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  vars:
+    ansible_roles_path: "../roles"
+    core_setup_groups:
+      - molecule
+      - molecule2
+    core_setup_users:
+      - name: molecule
+        primary_group: molecule
+        additional_groups:
+          - molecule2
+        shell: "/bin/bash"
+        state: present
+        create_home: true
+        custom_home: /opt/home/molecule
+    core_setup_directories:
+      - path: /opt/molecule-test
+        state: present
+        mode: "0660"
+        owner: molecule
+    core_setup_auth_keys:
+      - comment: molecule-test-key
+        user: molecule
+        key: "ssh-rsa CHECK-FOR-THIS-LINE"
+        state: present
+  tasks:
+    - name: Include the role
+      ansible.builtin.include_role:
+        name: core_setup

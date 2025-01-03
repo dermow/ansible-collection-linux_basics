@@ -1,0 +1,32 @@
+---
+# skipping ansible lint for commands
+# commands are bad for playbooks, but good for verifying :)
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Make sure user is existing
+      ansible.builtin.shell: "su - molecule"
+      changed_when: false
+      tags:
+        - skip_ansible_lint
+
+    - name: Make sure user user home is set
+      ansible.builtin.shell: "eval echo ~molecule"
+      register: userhome
+      failed_when: userhome.stdout != "/opt/home/molecule"
+      changed_when: false
+      tags:
+        - skip_ansible_lint
+
+    - name: Make sure auth_key is added
+      ansible.builtin.shell: "grep 'CHECK-FOR-THIS-LINE' /opt/home/molecule/.ssh/authorized_keys"
+      changed_when: false
+      tags:
+        - skip_ansible_lint
+
+    - name: Make sure directory is added
+      ansible.builtin.shell: "ls -l /opt/molecule-test"
+      changed_when: false
+      tags:
+        - skip_ansible_lint

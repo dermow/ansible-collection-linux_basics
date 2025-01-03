@@ -1,0 +1,8 @@
+name: GitHub Actions Molecule
+run-name: Molecule 🚀
+on: [push]
+jobs:
+  molecule_test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: apt update && apt install python3 && apt install python3-pip"
