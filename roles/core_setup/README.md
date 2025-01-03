@@ -123,6 +123,11 @@ Example Playbook
             owner: mow
             group: ansible
             mode: "0660"
+        core_setup_packages:
+          - name: nginx
+            state: present
+          - name: vim
+            state: present
 
 ```
 
