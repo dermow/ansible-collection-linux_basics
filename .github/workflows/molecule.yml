@@ -8,5 +8,5 @@ jobs:
       - uses: actions/checkout@v3
       - run: sudo apt update && sudo apt install python3 python3-pip python3-venv
       - run: python3 -m venv ansible-molecule
-      - run: source ansible-molecule/bin/activate && cd ansible-molecule && pytho3-pip install molecule 'molecule-plugins[podman]'
+      - run: source ansible-molecule/bin/activate && cd ansible-molecule && python3-pip install molecule 'molecule-plugins[podman]'
       
