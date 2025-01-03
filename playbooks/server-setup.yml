@@ -14,6 +14,7 @@
         core_setup_auth_keys:
           - comment: mow
             user: mow
+            # throwaway key ;)
             key: >
               ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCVajIctwcnBwqy5Xuh7tBrTgMvMzBD5cxeWRmiWl4ANT+1zohvsc0YNuCpAmWWpRX4nQMx963pyxBx6ZQW0wwWY
               3gb4Vr1KP/InkBHN2lJ1pniRNOwBooAQB6WHsljaLbxZC+neGNd6Ge/jpfSAzISzj5vhIa8vkg+4eK0BtU1sdgF9ud3d6MTUH3HeXWrak3snXbI3vYdyivPQseHnp3
