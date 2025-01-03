@@ -9,5 +9,5 @@ jobs:
       - run: sudo apt update && sudo apt install python3 python3-pip python3-venv
       - run: python3 -m venv ansible-molecule
       - run: source ansible-molecule/bin/activate && cd ansible-molecule && pip install molecule 'molecule-plugins[podman]'
-      - run: ls -rtl
+      - run: source ansible-molecule/bin/activate && cd roles/core_setup && molecule test
       
