@@ -12,7 +12,8 @@ Role Variables
 | core_setup_groups  | list | empty | list with groups to create. See section 'Managing users and groups' |
 | core_setup_auth_keys  | list | empty | list with authorized keys to add. See section 'Managing authorized keys' |
 | core_setup_exclusive_key_management | boolean | false | If enabled, all keys not specified here for the user will be removed. BE CAREFUL! |
-| core_setup_directories | list | empty | List of directoriesto be managed. See section 'Managing directories' |
+| core_setup_directories | list | empty | List of directories be managed. See section 'Managing directories' |
+| core_setup_packages | list | empty | List of packages be managed. See section 'Managing packages' |
 
 Managing users and groups
 --------------
@@ -81,6 +82,20 @@ This role can be used to managed directories on your servers.
             owner: mow
             group: ansible
             mode: "0660"
+```
+
+Managing packages
+--------------
+```yaml
+- hosts: my_hosts
+  tasks:
+    - name: Include this role
+      ansible.builtin.include_role:
+        name: dermow.linux_basics.core_setup
+      vars:
+        core_setup_packages:
+          - name: nginx
+            state: present
 ```
 
 Example Playbook
