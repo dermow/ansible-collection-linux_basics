@@ -7,6 +7,8 @@ Roles are tested against the following platforms:
 * Debian 11
 * Debian 12
 
+They may also work on other distributions.
+
 Open Topics
 --------------
-* Add support for rockylinux. Problems with python version right now
+* Add support for rockylinux. Problems with python version right now.
