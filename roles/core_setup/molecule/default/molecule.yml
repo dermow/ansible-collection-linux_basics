@@ -12,10 +12,16 @@ platforms:
   - name: ubuntu-24.04
     image: docker.io/nmusatti/ubuntu2404-pys:latest
     pre_build_image: true
-  - name: rockylinux8
-    image: docker.io/nmusatti/rockylinux8-pys:latest
+  - name: debian-11
+    image: docker.io/dudecalledbro/molecule-debian11-ansible
     pre_build_image: true
-  - name: rockylinux9
-    image: docker.io/nmusatti/rockylinux9-pys:latest
+  - name: debian-12
+    image: docker.io/dudecalledbro/molecule-debian12-ansible
     pre_build_image: true
-
+    
+  # - name: rockylinux8
+  #   image: docker.io/dudecalledbro/molecule-rockylinux8-ansible
+  #   pre_build_image: true
+  # - name: rockylinux9
+  #   image: docker.io/nmusatti/rockylinux9-pys:latest
+  #   pre_build_image: true
